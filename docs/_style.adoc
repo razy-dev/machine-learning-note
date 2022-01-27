@@ -1,0 +1,9 @@
+// Styles
+ifndef::root[:root: .]
+:stylesdir: {root}/style
+:stylesheet: style.css
+:source-highlighter: rouge
+:stem: latexmath
+
+// Image Dir
+ifndef::imagesdir[:imagesdir: {root}/imgs]

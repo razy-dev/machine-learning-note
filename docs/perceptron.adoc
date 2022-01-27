@@ -1,0 +1,7 @@
+include::_toc.adoc[]
+
+= Perception
+
+퍼셉트론은 다수의 신호(Input)을 입력받아서 하나의 신호(Output)을 출력한다.
+
+image::perceptron.png[align=center]

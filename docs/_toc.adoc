@@ -1,0 +1,8 @@
+ifndef::root[:root: .]
+include::{root}/_style.adoc[]
+:doctype: article
+:toc: left
+:toclevels: 2
+:sectnums:
+:sectnumlevels: 2
+:partnums:
