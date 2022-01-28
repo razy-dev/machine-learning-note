@@ -1,6 +1,3 @@
-from perceptron.percept import perceptron
-
-
 class LogicGate:
     # 논리 테스트 입력값
     input = [(0, 0,), (0, 1,), (1, 0,), (1, 1,)]
