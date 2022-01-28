@@ -1,5 +1,5 @@
-ifndef::root[:root: .]
-include::{root}/_style.adoc[]
+ifndef::rootdir[:rootdir: .]
+include::{rootdir}/_style.adoc[]
 :doctype: article
 :toc: left
 :toclevels: 2

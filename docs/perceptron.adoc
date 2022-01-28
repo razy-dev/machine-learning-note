@@ -237,3 +237,5 @@ XOR Test
 [ 1, 0 ] = 1
 [ 1, 1 ] = 0
 ----
+
+include::adoc/_to_index.adoc[]

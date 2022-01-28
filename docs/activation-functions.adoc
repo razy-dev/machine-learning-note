@@ -2,3 +2,44 @@ include::adoc/_toc.adoc[]
 
 = Activation Functions
 
+== 계단 함수(Step Function)
+[.text-center]
+stem:[
+h(x) =
+    \begin{cases}
+        0 \quad (x \leq 0) \\
+        1 \quad (x   >  0) \\
+    \end{cases}
+]
+
+== 선형 함수(Linear Function)
+[.text-center]
+stem:[h(x) = y = kx \: (k: 상수)]
+
+== 시그모이드 함수(Sigmoid Function)
+=== 로지스틱 회귀 모델과 오즈(Odds)
+[.text-center]
+stem:[Odds = \frac{P}{1-P}]
+
+eg>
+stem:[Test\ favorable\ Odds = \frac{Test\ favorable\ ratio}{Test\ unfavorable\ ratio} = \frac{\frac{60}{100}}{\frac{40}{100}} = 1.5]
+stem:[Control\ favorable\ Odds = \frac{Control\ favorable\ ratio}{Control\ unfavorable\ ratio} = \frac{\frac{20}{100}}{\frac{80}{100}}=0.25]
+
+==== 로짓 변환
+====
+stem:[a^x = b, \quad x = \log_ab]
+====
+
+stem:[logit(P) = ln\frac{p}{1-p} = f(x)]
+
+stem:[\frac{p}{1-p} = e^{f(x)}]
+
+stem:[p = e^{f(x)}(1-p)]
+
+stem:[p = e^{f(x)} - pe^{f(x)}]
+
+stem:[p(1+e^{f(x)}) = e^{f(x)}]
+
+stem:[p = \frac{e^{f(x)}}{1+e^{f(x)}} = \frac{1}{1+e^{-{f(x)}}}]
+
+stem:[f(x) = w^Tx = w_0x_0 + w_1x_1 + w_2x_2 +\ ... + w_mx_m]

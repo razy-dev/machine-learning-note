@@ -1,1 +1,1 @@
-[ xref:{root}/index.adoc[Home] ] [ xref:#header[Top] ]
+[ xref:{rootdir}/index.adoc[Home] ] [ xref:#header[Top] ]

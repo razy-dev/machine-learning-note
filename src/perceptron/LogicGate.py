@@ -35,7 +35,8 @@ class LogicGate:
         """
         Activation Function : 가정 결과를 판정하는 함수.
         계단 함수(Step Function), 선형 함수(Linear Function), 시그모이드 함수(Sigmoid Function),
-        소프트맥스 함수(Softmax Function), 하이퍼볼릭 탄젠트(Hyperbolic Tangent, tanh), 렐루 함수(Rectified Linear Unit, ReLU)
+        소프트맥스 함수(Softmax Function), 하이퍼볼릭 탄젠트(Hyperbolic Tangent, tanh),
+        렐루 함수(Rectified Linear Unit, ReLU)
         등이 있다.
         """
         return 1 if y > 0 else 0
