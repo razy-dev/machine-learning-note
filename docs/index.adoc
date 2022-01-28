@@ -1,3 +1,7 @@
-include::_toc.adoc[]
+include::adoc/_toc.adoc[]
 
 = AI Deep Learning
+
+== Basic
+* xref:perceptron.adoc[Perceptron]
+* xref:activation-functions.adoc[Activation Functions]

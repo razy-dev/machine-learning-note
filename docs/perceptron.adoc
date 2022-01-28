@@ -1,4 +1,4 @@
-include::_toc.adoc[]
+include::adoc/_toc.adoc[]
 
 = Perception
 
@@ -29,6 +29,8 @@ include::{sourcedir}/perceptron/percept.py[]
 [ x1 = 3, x2 = 1 ] : 0.6 = 0.1 * 3 + 0.3 * 1 <= 0.6, return 0
 [ x1 = 4, x2 = 1 ] : 0.7 = 0.1 * 4 + 0.3 * 1  > 0.6, return 1
 ----
+
+include::adoc/_to_index.adoc[]
 
 == Logic Gates Test
 image::logic-gates.png[align=center]
@@ -194,6 +196,7 @@ w_1 + w_2 + 2b > 0 \: 를 만족하는 조건은 구할 수 없다.
 
 image::perceptron-xor-gate.png[align=center]
 
+include::adoc/_to_index.adoc[]
 
 == Logic Gate
 
