@@ -2,7 +2,9 @@
 ifndef::root[:root: .]
 :stylesdir: {root}/style
 :stylesheet: style.css
-:source-highlighter: rouge
+//:source-highlighter: rouge
+:source-highlighter: coderay
+:sourcedir: {root}/../src
 :stem: latexmath
 
 // Image Dir

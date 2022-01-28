@@ -19,18 +19,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
-    - name: asciidoctor-ghpages
-      uses: manoelcampos/asciidoctor-ghpages-action@v2
-      with:
-        asciidoctor_params: --attribute=nofooter
-        # pdf_build: true
-        # adoc_file_ext: .ascii # default is .adoc
-        source_dir: docs/ # default is .
-        # source_dir: /
-        # slides_build: true
-        # pre_build:
-        # post_build:
+      # Includes the AsciiDoctor GitHub Pages Action to convert adoc files to html and publish to gh-pages branch
+      - name: asciidoctor-ghpages
+        uses: manoelcampos/asciidoctor-ghpages-action@v2
+        with:
+          asciidoctor_params: --attribute=nofooter
+          # pdf_build: true
+          # adoc_file_ext: .ascii # default is .adoc
+          source_dir: ./docs/ # default is .
+          # source_dir: /
+          # slides_build: true
+          # pre_build:
+          # post_build:

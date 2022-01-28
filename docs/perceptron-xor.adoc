@@ -1,21 +1,32 @@
 include::_toc.adoc[]
 
-= Perception
+= Perception XOR
 
-== Perception
-* 퍼셉트론은 N개의 입력 받아 1개의 응답를 출력한다.
-* 노드에서 다음 노드로 정보가 전해질 때, 가중치(stem:[w_1, w_2])가 곱해져 전달된다.
-* 입력값의 총합이 임계값(stem:[\theta])보다 크면 1을 출력하고, 임계값보다 작으면 0을 출력한다.
+== XOR Gate
+[cols="^1,^1,^1"]
+// , %autowidth.stretch]
+|====
+| stem:[x_1] | stem:[x_2] | y
 
-image::perceptron.png[align=center]
+| 0 | 0 | 0
+| 0 | 1 | 1
+| 1 | 0 | 1
+| 1 | 1 | 0
+|====
+
+image::perceptron-xor.png[align=center]
 
 [.text-center]
 stem:[y =
   \begin{cases}
-    0 \quad (w_1 x_1 + w_2 x_2 \leq \theta) \\
-    1 \quad (w_1 x_1 + w_2 x_2   >  \theta) \\
+    0 \quad (w_1 \times 0 + w_2 \times 0 + b \leq 0) = b \leq 0         \\
+    1 \quad (w_1 \times 0 + w_2 \times 1 + b > 0)    = w_2 + b > 0      \\
+    1 \quad (w_1 \times 1 + w_2 \times 0 + b > 0)    = w_1 + b > 0      \\
+    0 \quad (w_1 \times 1 + w_2 \times 1 + b \leq 0) = w_1 + w_2 \leq 0 \\
   \end{cases}
 ]
+
+image::perceptron-xor-gate.png[align=center]
 
 === Implement
 [source,python]
@@ -30,10 +41,10 @@ include::{sourcedir}/perceptron/percept.py[]
 [ x1 = 4, x2 = 1 ] : 0.7 = 0.1 * 4 + 0.3 * 1  > 0.6, return 1
 ----
 
-== Logic Gates Test
+== Logic Gates
 image::logic-gates.png[align=center]
 
-=== AND Gate Test
+=== AND Gate
 [cols="^1,^1,^1"]
 // , %autowidth.stretch]
 |====
@@ -69,7 +80,7 @@ w1 = 0.6, w2 = 0.6, theta=1
 ...
 ----
 
-=== NAND Gate Test
+=== NAND Gate
 [cols="^1,^1,^1"]
 // , %autowidth.stretch]
 |====
@@ -109,7 +120,7 @@ w1 = -0.4, w2 = -0.4, theta=-1
 [ x1 = 1, x2 = 1 ] : -0.8 = -0.4 * 1 + -0.4 * 1  > -1, return 1
 ----
 
-=== OR Gate Test
+=== OR Gate
 [cols="^1,^1,^1"]
 // , %autowidth.stretch]
 |====
@@ -141,91 +152,4 @@ w1 = 0.6, w2 = 0.6, theta=0.5
 [ x1 = 1, x2 = 0 ] : 0.6 = 0.6 * 1 + 0.6 * 0  > 0.5, return 1
 [ x1 = 1, x2 = 1 ] : 1.2 = 0.6 * 1 + 0.6 * 1  > 0.5, return 1
 ...
-----
-
-=== XOR Gate
-[cols="^1,^1,^1"]
-// , %autowidth.stretch]
-|====
-| stem:[x_1] | stem:[x_2] | y
-
-| 0 | 0 | 0
-| 0 | 1 | 1
-| 1 | 0 | 1
-| 1 | 1 | 0
-|====
-
-image::perceptron-xor.png[align=center]
-
-Perceptron 식을 다음과 같이 변형 해보자.
-
-[.text-center]
-stem:[y =
-  \begin{cases}
-    0 \quad (w_1 x_1 + w_2 x_2 \leq \theta) = (w_1 x_1 + w_2 x_2 + bias \leq 0) \\
-    1 \quad (w_1 x_1 + w_2 x_2   >  \theta) = (w_1 x_1 + w_2 x_2 + bias   >  0)
-  \end{cases}
-]
-
-( 즉, bias = stem:[-\theta] )
-
-다음, XOR 식에 적용 해 보면,
-
-[.text-center]
-stem:[y =
-  \begin{cases}
-    0 \quad (w_1 \times 0 + w_2 \times 0 + b \leq 0) = b \leq 0         \\
-    1 \quad (w_1 \times 0 + w_2 \times 1 + b > 0)    = w_2 + b > 0      \\
-    1 \quad (w_1 \times 1 + w_2 \times 0 + b > 0)    = w_1 + b > 0      \\
-    0 \quad (w_1 \times 1 + w_2 \times 1 + b \leq 0) = w_1 + w_2 \leq 0 \\
-  \end{cases}
-]
-
-위 가정 식에서
-//==
-
-stem:[
-결과값이 \:1인 경우는 \: w_2 + b > 0 \: 과 \: w_1 + b > 0 \: 이고, 따라서 \: w_1 + w_2 + 2b > 0 \: 가 성립한다.\\
-그런데, 결과값이 \:0인 경우에 \: w_1 + w_2 \leq 0 \: 이고 \: b \leq 0 \: 이기 때문에 \:
-w_1 + w_2 + 2b > 0 \: 를 만족하는 조건은 구할 수 없다.
-]
-
-따라서, XOR 은 다른 논리게이트의 조합으로 구성한다.
-
-image::perceptron-xor-gate.png[align=center]
-
-
-== Logic Gate
-
-.AND, NAND, OR, XOR 를 모두 처리하는 LogicGate Class
-[source,python]
-----
-include::{sourcedir}/perceptron/LogicGate.py[]
-----
-
-.result
-----
-AND Test
-[ 0, 0 ] = 0
-[ 0, 1 ] = 0
-[ 1, 0 ] = 0
-[ 1, 1 ] = 1
-
-NAND Test
-[ 0, 0 ] = 1
-[ 0, 1 ] = 1
-[ 1, 0 ] = 1
-[ 1, 1 ] = 0
-
-OR Test
-[ 0, 0 ] = 0
-[ 0, 1 ] = 1
-[ 1, 0 ] = 1
-[ 1, 1 ] = 1
-
-XOR Test
-[ 0, 0 ] = 0
-[ 0, 1 ] = 1
-[ 1, 0 ] = 1
-[ 1, 1 ] = 0
 ----
