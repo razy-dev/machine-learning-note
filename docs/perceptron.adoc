@@ -19,6 +19,7 @@ stem:[y =
 
 === Implement
 [source,python]
+.perceptron/percept.py
 ----
 include::{sourcedir}/perceptron/percept.py[]
 ----
@@ -48,6 +49,7 @@ image::logic-gates.png[align=center]
 |====
 
 [source,python]
+.perceptron/perceptron-and.py
 ----
 include::{sourcedir}/perceptron/perceptron-and.py[]
 ----
@@ -84,6 +86,7 @@ w1 = 0.6, w2 = 0.6, theta=1
 |====
 
 [source,python]
+.perceptron/perceptron-nand.py
 ----
 include::{sourcedir}/perceptron/perceptron-nand.py[]
 ----
@@ -124,6 +127,7 @@ w1 = -0.4, w2 = -0.4, theta=-1
 |====
 
 [source,python]
+.perceptron/perceptron-or.py
 ----
 include::{sourcedir}/perceptron/perceptron-or.py[]
 ----
@@ -202,6 +206,7 @@ include::adoc/_to_index.adoc[]
 
 .AND, NAND, OR, XOR 를 모두 처리하는 LogicGate Class
 [source,python]
+.perceptron/LogicGate.py
 ----
 include::{sourcedir}/perceptron/LogicGate.py[]
 ----
