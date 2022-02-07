@@ -2,21 +2,29 @@ include::adoc/_toc.adoc[]
 
 = Activation Functions
 
+== 정의
+
+입력값과 가중치 곱의 총합에 대한 판단(결과)을 위한 함수
+
+stem:[x = w_1x_1 + w_2x_2 + ... + w_nx_n + b]
+
+stem:[y = h(x)]
+
 == 계단 함수(Step Function)
+
 [.text-center]
 stem:[
-h(x) =
-    \begin{cases}
-        0 \quad (x \leq 0) \\
-        1 \quad (x   >  0) \\
-    \end{cases}
+h(x) = \begin{cases}
+0 \quad (x \leq 0) \\ 1 \quad (x > 0) \\ \end{cases}
 ]
 
 == 선형 함수(Linear Function)
+
 [.text-center]
 stem:[h(x) = y = kx \: (k: 상수)]
 
 == 시그모이드 함수(Sigmoid Function)
+
 === 로지스틱 회귀 모델과 오즈(Odds)
 
 [.text-center]
@@ -27,8 +35,11 @@ stem:[Test\ favorable\ Odds = \frac{Test\ favorable\ ratio}{Test\ unfavorable\ r
 stem:[Control\ favorable\ Odds = \frac{Control\ favorable\ ratio}{Control\ unfavorable\ ratio} = \frac{\frac{20}{100}}{\frac{80}{100}}=0.25]
 
 ==== 로짓 변환
+
 ====
-stem:[a^x = b, \quad x = \log_ab]
+stem:[a^x = b,\quad x = \log_ab]
+
+stem:[2^4 = 8,\quad 4 = \log_28], 즉 지수가 얼마인가?
 ====
 
 stem:[logit(P) = ln\frac{p}{1-p} = f(x)]
@@ -45,6 +56,20 @@ stem:[p = \frac{e^{f(x)}}{1+e^{f(x)}} = \frac{1}{1+e^{-{f(x)}}}]
 
 stem:[f(x) = w^Tx = w_0x_0 + w_1x_1 + w_2x_2 +\ ... + w_mx_m]
 
-
 == 소프트맥스 함수(Softmax Function)
-stem:[y_k = \frac{e^{a_k}}{\sum_{i=1}^{n}e^{a_i}}]
+
+* 세 개 이상으로 분류하는 다중 클래스 분류에서 사용되는 활성화 함수다.
+* 분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.
+
+stem:[y_k = \frac{e^{a_k}}{\sum_{i=1}^{n}e^{a_i}}]::
+stem:[n] : 출력층의 뉴런 수 +
+stem:[k] : stem:[k] 번째 클래스
+
+eg> 3개 클래스
+
+stem:[softmax(z) = ( \frac{e^{z_1}}{e^{z_1}+e^{z_2}+e^{z_3}},
+\frac{e^{z_2}}{e^{z_1}+e^{z_2}+e^{z_3}},
+\frac{e^{z_3}}{e^{z_1}+e^{z_2}+e^{z_3}}
+) = (p_1, p_2, p_3)
+]
+
