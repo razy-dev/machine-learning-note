@@ -1,0 +1,13 @@
+// Styles
+ifndef::rootdir[:rootdir: ..]
+//:stylesdir: {rootdir}/adoc
+//:stylesheet: style.css
+
+// Source
+//:source-highlighter: rouge | coderay
+ifndef::source-highlighter[:source-highlighter: coderay]
+ifndef::stem[:stem: latexmath]
+
+// Resource Path
+ifndef::sourcedir[:sourcedir: {rootdir}/../src]
+ifndef::imagedir[:imagedir: ./imgs]

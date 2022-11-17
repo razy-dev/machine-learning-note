@@ -1,0 +1,9 @@
+ifndef::rootdir[:rootdir: ..]
+include::./def.adoc[]
+ifdef::subject[:toc-title: {subject}]
+:doctype: article
+:toc: left
+:toclevels: 2
+:sectnums:
+:sectnumlevels: 2
+:partnums:

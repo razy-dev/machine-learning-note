@@ -1,8 +1,0 @@
-ifndef::rootdir[:rootdir: .]
-include::{rootdir}/_style.adoc[]
-:doctype: article
-:toc: left
-:toclevels: 2
-:sectnums:
-:sectnumlevels: 2
-:partnums:
