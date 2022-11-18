@@ -1,7 +1,7 @@
 // Styles
 ifndef::rootdir[:rootdir: ..]
-//:stylesdir: {rootdir}/adoc
-//:stylesheet: style.css
+:stylesdir: {rootdir}/adoc
+:stylesheet: style.css
 
 // Source
 //:source-highlighter: rouge | coderay
