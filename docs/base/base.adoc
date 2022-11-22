@@ -1,0 +1,45 @@
+= AI
+
+== ??
+=== Machine Learning
+=== Deep Learning
+
+== Machine Learning 분류
+=== 지도 학습(Supervised Learning)
+독립변수 -> 종족변수(정답)
+
+분류(Classification):: 범주(範疇, Categorical)
+* Support Vector Machines
+* Discriminant Analysis
+* Naive Bayes
+* Nearest Neighbor
+* Neural Networks
+
+회귀(Regression):: 양적(量的, Quantitative)
+* Linear Regression / GLM
+* SVR / GPR
+* Ensemble Methods
+* Decision Trees
+* Neural Networks
+
+
+=== 비지도 학습(Unsupervised Learning)
+관찰 -> 의미/관계
+
+군집화(Clustering):: 관측치(행)를 그룹핑 해주는 것
+* K-means, K-Medoids, Fuzzy C-Means
+* Hierarchical
+* Gaussian Mixture
+* Hidden Markov Model
+* Neural Networks
+
+변환::
+연관:: 특성(열)을 그룹핑 해주는 것
+
+//==
+
+=== 강화 학습(Reinforcement Learning)
+상/벌
+
+
+
