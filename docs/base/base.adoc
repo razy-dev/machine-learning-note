@@ -9,11 +9,13 @@
 독립변수 -> 종족변수(정답)
 
 분류(Classification):: 범주(範疇, Categorical)
+알고리즘:::
+* 로지스틱 회귀(Linear Regression)
+* 선형 판별 분석(Linear Discriminant Analysis / Discriminant Analysis)
+* K-최근접 이웃(KNN, K-nearest neighbors / Nearest Neighbor)
 * Support Vector Machines
-* Discriminant Analysis
 * Naive Bayes
-* Nearest Neighbor
-* Neural Networks
+* c
 
 회귀(Regression):: 양적(量的, Quantitative)
 * Linear Regression / GLM
@@ -41,5 +43,10 @@
 === 강화 학습(Reinforcement Learning)
 상/벌
 
+== RNN, LSTM, GRU
+
+
+== Libs
+* scikit-learn
 
 
