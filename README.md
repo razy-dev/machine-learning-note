@@ -13,3 +13,5 @@ https://razy-dev.github.io/machine-learning-note
 ### Window(Block) Pattern 분석/예측 모델
 
 * ???
+
+https://wikidocs.net/60848
