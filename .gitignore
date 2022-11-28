@@ -24,4 +24,4 @@ out/
 ### ETC ###
 properties/default.yml
 .security.yml
-/src/pytorch/data/
+/bck/src/pytorch/data/
