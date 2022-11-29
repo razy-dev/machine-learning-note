@@ -24,3 +24,12 @@ loss &= y_i - \hat{y_i} \\
 stem:[
     \frac {exp(x_i)} {\sum_{i}{exp(x_i)}}
 ]
+
+stem:[
+\begin{align}
+loss &= y - y\_pred \\
+cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
+     &= \frac 1 n \sum_{i}^{n} (y - y\_pred)^2 \\
+     &= \frac 1 n \sum_{i}^{n} (y - (wx + b))^2
+\end{align}
+]
