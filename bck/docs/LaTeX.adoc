@@ -33,3 +33,96 @@ cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
      &= \frac 1 n \sum_{i}^{n} (y - (wx + b))^2
 \end{align}
 ]
+
+stem:[
+\begin{align}
+np.inner(x, y) =
+\begin{bmatrix}
+    \begin{bmatrix} 1 & 2 \end{bmatrix} \\
+    \begin{bmatrix} 3 & 4 \end{bmatrix}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    \begin{bmatrix} 10 & 20 \end{bmatrix} \\
+    \begin{bmatrix} 30 & 40 \end{bmatrix}
+\end{bmatrix}
+&= \begin{bmatrix}
+    \begin{bmatrix} 1 \times 10 + 2 \times 20 & 1 \times 30 + 2 \times 40 \end{bmatrix} \\
+    \begin{bmatrix} 3 \times 10 + 4 \times 20 & 3 \times 30 + 4 \times 40 \end{bmatrix}
+\end{bmatrix} \\
+&= \begin{bmatrix}
+    \begin{bmatrix}  50 & 110 \end{bmatrix} \\
+    \begin{bmatrix} 110 & 250 \end{bmatrix}
+\end{bmatrix}
+\end{align}
+]
+
+stem:[
+\begin{align}
+x \cdot y =
+\begin{bmatrix}
+    \begin{bmatrix}
+        \begin{bmatrix} 1 & 2 \end{bmatrix} \\
+        \begin{bmatrix} 3 & 4 \end{bmatrix}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+        \begin{bmatrix} 5 & 6 \end{bmatrix} \\
+        \begin{bmatrix} 7 & 8 \end{bmatrix}
+    \end{bmatrix}
+\end{bmatrix}
+\cdot \begin{bmatrix}
+    \begin{bmatrix}
+        \begin{bmatrix} 10 & 20 \end{bmatrix} \\
+        \begin{bmatrix} 30 & 40 \end{bmatrix}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+        \begin{bmatrix} 50 & 60 \end{bmatrix} \\
+        \begin{bmatrix} 70 & 80 \end{bmatrix}
+    \end{bmatrix}
+\end{bmatrix}
+&= \begin{bmatrix}
+    \begin{bmatrix}
+        \begin{bmatrix}
+            \begin{bmatrix} 1 \times 10 + 2 \times 30 & 1 \times 20 + 2 \times 40 \end{bmatrix} \\
+            \begin{bmatrix} 1 \times 50 + 2 \times 70 & 1 \times 60 + 2 \times 80 \end{bmatrix}
+        \end{bmatrix} \\
+        \begin{bmatrix}
+            \begin{bmatrix} 3 \times 10 + 4 \times 30 & 3 \times 20 + 4 \times 40 \end{bmatrix} \\
+            \begin{bmatrix} 3 \times 50 + 4 \times 70 & 3 \times 60 + 4 \times 80 \end{bmatrix}
+        \end{bmatrix}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+        \begin{bmatrix}
+            \begin{bmatrix} 5 \times 10 + 6 \times 30 & 5 \times 20 + 6 \times 40 \end{bmatrix} \\
+            \begin{bmatrix} 5 \times 50 + 6 \times 70 & 5 \times 60 + 6 \times 80 \end{bmatrix}
+        \end{bmatrix} \\
+        \begin{bmatrix}
+            \begin{bmatrix} 7 \times 10 + 8 \times 30 & 7 \times 20 + 8 \times 40 \end{bmatrix} \\
+            \begin{bmatrix} 7 \times 50 + 8 \times 70 & 7 \times 60 + 8 \times 80 \end{bmatrix}
+        \end{bmatrix}
+    \end{bmatrix}
+\end{bmatrix} \\
+&= \begin{bmatrix}
+    \begin{bmatrix}
+        \begin{bmatrix}
+            \begin{bmatrix}  70 & 100 \end{bmatrix} \\
+            \begin{bmatrix} 190 & 220 \end{bmatrix}
+        \end{bmatrix} \\
+        \begin{bmatrix}
+            \begin{bmatrix} 150 & 220 \end{bmatrix} \\
+            \begin{bmatrix} 430 & 500 \end{bmatrix}
+        \end{bmatrix}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+        \begin{bmatrix}
+            \begin{bmatrix} 230 & 340 \end{bmatrix} \\
+            \begin{bmatrix} 670 & 780 \end{bmatrix}
+        \end{bmatrix} \\
+        \begin{bmatrix}
+            \begin{bmatrix} 310 &  460 \end{bmatrix} \\
+            \begin{bmatrix} 910 & 1060 \end{bmatrix}
+        \end{bmatrix}
+    \end{bmatrix}
+\end{bmatrix}
+\end{align}
+]
