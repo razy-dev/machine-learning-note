@@ -1,0 +1,14 @@
+ifndef::rootdir[:rootdir: ..]
+include::./def.adoc[]
+ifdef::subject[:toc-title: {subject}]
+ifndef::doctype[:doctype: article]
+
+ifndef::toc[:toc: left]
+ifndef::toclevels[:toclevels: 2]
+
+// Part Numbering
+ifndef::partnums![:partnums:]
+
+// Section Numbering
+ifndef::sectnums![:sectnums:]
+ifndef::sectnumlevels[:sectnumlevels: 2]

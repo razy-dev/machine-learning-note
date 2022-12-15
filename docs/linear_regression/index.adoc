@@ -1,0 +1,7 @@
+:rootdir: ..
+:sourcedir: {rootdir}/../src/basic/linear_regression
+include::../adoc/toc.adoc[]
+
+# abc
+
+## bbc

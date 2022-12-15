@@ -1,0 +1,97 @@
+include::adoc/toc.adoc[]
+
+== Delimited Blocks
+* https://docs.asciidoctor.org/asciidoc/latest/blocks/delimited/
+====
+Here's a sample AsciiDoc document:
+
+----
+= Document Title
+Author Name
+
+Content goes here.
+----
+
+The docu
+====
+====
+Here are your options:
+
+.Red Pill
+[%collapsible]
+======
+Escape into the real world.
+======
+
+.Blue Pill
+[%collapsible]
+======
+Live within the simulated reality without want or fear.
+======
+====
+
+=== example
+[example]
+example
+
+====
+example
+====
+
+[NOTE]
+====
+Remember the milk.
+====
+
+=== listing
+[listing]
+listing
+
+----
+listing
+----
+
+[listing]
+....
+a > b
+....
+
+=== literal
+[literal]
+literal
+
+....
+literal
+....
+
+=== quote
+[quote]
+quote
+
+____
+quote
+____
+
+=== verse
+[verse]
+verse
+
+____
+verse
+____
+
+=== open
+[open]
+open
+
+--
+open
+--
+
+=== pass
+[pass]
+pass
+
+++++
+pass
+++++

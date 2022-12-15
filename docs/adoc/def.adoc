@@ -2,12 +2,14 @@
 ifndef::rootdir[:rootdir: ..]
 :stylesdir: {rootdir}/adoc
 :stylesheet: style.css
+:srcroot: {rootdir}/../src
+:imgroot: {rootdir}/imgs
 
-// Source
-//:source-highlighter: rouge | coderay
+// Source :source-highlighter: rouge | coderay
 ifndef::source-highlighter[:source-highlighter: coderay]
 ifndef::stem[:stem: latexmath]
 
 // Resource Path
-ifndef::sourcedir[:sourcedir: {rootdir}/../src]
+ifdef::srcpath[:sourcedir: {srcroot}{srcpath}]
+ifndef::sourcedir[:sourcedir: {srcroot}]
 ifndef::imagedir[:imagedir: ./imgs]

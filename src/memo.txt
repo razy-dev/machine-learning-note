@@ -1,0 +1,6 @@
+# 'module://backend_interagg'
+# 'GTK3Agg', 'GTK3Cairo', 'GTK4Agg', 'GTK4Cairo', 'MacOSX', 'nbAgg', 'QtAgg', 'QtCairo', 'Qt5Agg', 'Qt5Cairo', 'TkAgg', 'TkCairo', 'WebAgg', 'WX', 'WXAgg', 'WXCairo', 'agg', 'cairo', 'pdf', 'pgf', 'ps', 'svg', 'template'
+matplotlib.use(None)
+
+x = np.linspace(0, 2 * np.pi, 200)
+y = np.sin(x)
