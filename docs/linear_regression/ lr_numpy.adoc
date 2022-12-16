@@ -46,6 +46,7 @@ include::{sourcedir}/lr_numpy.py[tag=cost]
 
 === Optimize
 
+.
 ====
 stem:[
 \begin{align}
