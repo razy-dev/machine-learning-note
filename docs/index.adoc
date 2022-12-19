@@ -1,3 +1,7 @@
-include::adoc/toc.adoc[]
+:rootdir: .
+include::{rootdir}/adoc/def.adoc[]
 
-#
+= AI
+
+== Basics
+=== Linear Regression

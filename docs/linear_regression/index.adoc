@@ -1,7 +1,9 @@
 :rootdir: ..
-:sourcedir: {rootdir}/../src/basic/linear_regression
-include::../adoc/toc.adoc[]
+include::{rootdir}/adoc/def.adoc[]
 
-# abc
+= Linear Regressions
 
-## bbc
+* xref:lr_numpy.adoc[1. Linear Regression Using Numpy]
+* xref:lr_autograd.adoc[2. Linear Regression Using Autograd]
+
+include::{rootdir}/adoc/navigation.adoc[]

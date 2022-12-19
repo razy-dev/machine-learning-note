@@ -13,3 +13,7 @@ ifndef::stem[:stem: latexmath]
 ifdef::srcpath[:sourcedir: {srcroot}{srcpath}]
 ifndef::sourcedir[:sourcedir: {srcroot}]
 ifndef::imagedir[:imagedir: ./imgs]
+
+// Navigation
+ifndef::prev_name[:prev_name: Prev]
+ifndef::next_name[:next_name: Next]

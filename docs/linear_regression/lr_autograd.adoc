@@ -1,0 +1,71 @@
+:rootdir: ..
+:chapterdir: /linear_regression
+:srcpath: /linear_regression
+include::{rootdir}/adoc/toc.adoc[]
+
+= Linear Regression Using Autograd
+:prev_page: lr_numpy
+:next_page: lr_optimizer
+
+[NOTE]
+====
+주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
+====
+
+== Dataset
+```python
+include::{sourcedir}/lr_autograd.py[tag=dataset]
+```
+
+include::{rootdir}/adoc/navigation.adoc[]
+
+== Hypothesis(가설)
+====
+stem:[\hat{y} = wx + b]
+====
+
+.Hypothesis Function
+```python
+include::{sourcedir}/lr_autograd.py[tag=hypothesis]
+```
+
+include::{rootdir}/adoc/navigation.adoc[]
+
+== Loss(Error) & Cost
+Mean Squared Error(MSE: 평균제곱오차)
+====
+stem:[
+\begin{align}
+loss &= y_i - \hat{y_i} \\
+cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
+     &= \frac 1 n \sum_{i}^{n} (y_i - \hat{y_i})^2 \\
+     &= \frac 1 n \sum_{i}^{n} (y_i - (wx_i + b))^2 \\
+\end{align}
+]
+====
+.Cost Function
+```python
+include::{sourcedir}/lr_autograd.py[tag=cost]
+```
+
+include::{rootdir}/adoc/navigation.adoc[]
+
+== Trainig
+
+=== Gradient Descent Algorithm(기울기 감소 알고리즘)
+
+=== Optimize
+* lr: Learning Rate
+```python
+include::{sourcedir}/lr_autograd.py[tag=training]
+```
+
+include::{rootdir}/adoc/navigation.adoc[]
+
+
+== Test
+```python
+include::{sourcedir}/lr_autograd.py[tag=test]
+```
+
+include::{rootdir}/adoc/navigation.adoc[]

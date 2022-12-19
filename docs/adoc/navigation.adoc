@@ -1,0 +1,5 @@
+[ xref:{rootdir}/index.adoc[Home] ]
+ifdef::chapterdir[[ xref:{rootdir}{chapterdir}/index.adoc[Contents] ]]
+[ xref:#header[Top] ]
+ifdef::prev_page[[ xref:{prev_page}.adoc[{prev_name}] ]]
+ifdef::next_page[[ xref:{next_page}.adoc[{next_name}] ]]

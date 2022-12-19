@@ -1,9 +1,10 @@
 # tag::preset[]
 import matplotlib
-import numpy as np
-from numpy import ndarray
+import torch
+from torch import Tensor
 
-np.random.seed(1)  # 난수 고정
+torch.manual_seed(1)  # 난수 고정
+torch.set_printoptions(threshold=10, linewidth=128)  # for printing
 matplotlib.use('MacOSX')  # 'module://backend_interagg', 'GTK3Agg', 'GTK3Cairo' ...
 # end::preset[]
 
@@ -12,8 +13,8 @@ BATCH_SIZE = 100
 
 
 def build_dataset(size: int, batch_size: int = None, train_rate: float = 0.7) -> tuple:
-    x = np.linspace(0, 10, size)
-    y = 10 * x + np.random.randint(-2, 2, size)
+    x = torch.linspace(0, 10, steps=size, dtype=float)
+    y = 10 * x + torch.randint(-2, 2, (size,))
     train_len = round(size * train_rate)
     x_train = x[:train_len]
     y_train = y[:train_len]
@@ -31,32 +32,17 @@ x_train, y_train, x_test, y_test = build_dataset(BATCH_SIZE)
 # end::dataset[]
 
 # tag::hypothesis[]
-def hypothesis(x):
+def hypothesis(x) -> Tensor:
     return w * x + b
 
 
 # end::hypothesis[]
 
 # tag::cost[]
-def criterion(prediction: ndarray, target: ndarray):
-    return np.sum((prediction - target) ** 2) / len(prediction)
-
+criterion = torch.nn.MSELoss(reduction='mean')
 
 # end::cost[]
 
-# tag::dw[]
-def w_grad(input: ndarray, target: ndarray, x: ndarray):
-    return (-2 / len(target)) * np.sum(x * (target - input))
-
-
-# end::dw[]
-
-# tag::db[]
-def b_grad(input: ndarray, target: ndarray):
-    return (-2 / len(target)) * np.sum(target - input)
-
-
-# end::db[]
 
 # tag::optimizer[]
 
@@ -64,18 +50,24 @@ def b_grad(input: ndarray, target: ndarray):
 
 # tag::training[]
 # tag::parameters[]
-w = 5
-b = 1
-
+w = torch.tensor(5., requires_grad=True)
+b = torch.tensor(1., requires_grad=True)
 # end::parameters[]
+
 print("\nTraining the model")
 costs = []
 lr = 0.01
 for e in range(1000):
     y_pred = hypothesis(x_train)
-    costs.append(criterion(y_pred, y_train))
-    w = w - lr * w_grad(y_pred, y_train, x_train)
-    b = b - lr * b_grad(y_pred, y_train)
+    cost = criterion(y_pred, y_train)
+    costs.append(cost)
+
+    cost.backward()
+    with torch.no_grad():
+        w -= lr * w.grad
+        b -= lr * b.grad
+        w.grad = None  # grad 초기화
+        b.grad = None  # grad 초기화
 
     if not e % 100:
         print(f"{e:4} : cost = {costs[-1]:>4.8} H(x) = {w:>4.5}x + {b:>4.5}")
