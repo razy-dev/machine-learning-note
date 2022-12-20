@@ -1,7 +1,7 @@
 :rootdir: ..
 include::{rootdir}/adoc/def.adoc[]
 
-= Linear Regressions
+= Logistic Regressions
 
 === xref:lr_numpy.adoc[1. Linear Regression Using Numpy]
 ====

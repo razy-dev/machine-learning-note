@@ -1,11 +1,10 @@
 :rootdir: ..
-:docdir: /linear_regression
-:srcpath: /linear_regression
+:chapter: linear_regression
 include::{rootdir}/adoc/toc.adoc[]
 
 = Linear Regression Using Optimizer
 :prev_page: lr_autograd
-:next_page: lr_torch
+:next_page: lr_model
 
 [NOTE]
 ====

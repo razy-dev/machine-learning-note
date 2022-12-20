@@ -1,19 +1,18 @@
 :rootdir: ..
-:docdir: /linear_regression
-:srcpath: /linear_regression
+:chapter: logistic_regression
 include::{rootdir}/adoc/toc.adoc[]
 
-= Linear Regression
-:next_page: lr_autograd
+= Basic Logistic Regression
+:next_page: lg_autograd
 
 [NOTE]
 ====
-주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
+주어진 값(들) 또는 그 연산 결과가 특정 범위에 속할 확률(분류)을 찾는 것
 ====
 
 == Dataset
 ```python
-include::{sourcedir}/lr_numpy.py[tag=dataset]
+include::{sourcedir}/lg_numpy.py[tag=dataset]
 ```
 
 include::{rootdir}/adoc/navigation.adoc[]

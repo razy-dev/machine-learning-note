@@ -10,10 +10,7 @@ ifndef::source-highlighter[:source-highlighter: coderay]
 ifndef::stem[:stem: latexmath]
 
 // Resource Path
-ifdef::srcpath[:sourcedir: {srcroot}{srcpath}]
+ifdef::chapter[:srcdir: {srcroot}/{chapter}]
+ifdef::srcdir[:sourcedir: {srcdir}]
 ifndef::sourcedir[:sourcedir: {srcroot}]
 ifndef::imagedir[:imagedir: ./imgs]
-
-// Navigation
-ifndef::prev_name[:prev_name: Prev]
-ifndef::next_name[:next_name: Next]

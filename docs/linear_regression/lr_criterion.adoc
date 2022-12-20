@@ -1,5 +1,5 @@
 :rootdir: ..
-:chapterdir: /linear_regression
+:docdir: /linear_regression
 :srcpath: /linear_regression
 include::{rootdir}/adoc/toc.adoc[]
 

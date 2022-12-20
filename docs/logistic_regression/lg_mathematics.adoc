@@ -1,0 +1,20 @@
+:rootdir: ..
+:chapter: logistic_regression
+include::{rootdir}/adoc/toc.adoc[]
+
+= Logistic Regression Mathematics
+:next_page: lg_numpy
+
+[NOTE]
+====
+Logistic Regression 의 수식
+====
+
+== Hypothesis(가설)
+
+====
+====
+
+== Loss(Error) & Cost
+
+== Differential & Gradient
