@@ -5,10 +5,10 @@ include::{rootdir}/adoc/toc.adoc[]
 = Basic Logistic Regression
 :next_page: lg_autograd
 
-[NOTE]
-====
-주어진 값(들) 또는 그 연산 결과가 특정 범위에 속할 확률(분류)을 찾는 것
-====
+[sidebar]
+----
+주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
+----
 
 == Dataset
 ```python
@@ -19,12 +19,12 @@ include::{rootdir}/adoc/navigation.adoc[]
 
 == Hypothesis(가설)
 ====
-stem:[\hat{y} = wx + b]
+stem:[\hat{y} = w_0x_0 + w_1x_1 + \cdots + w_ix_i + b]
 ====
 
 .Hypothesis Function
 ```python
-include::{sourcedir}/lr_numpy.py[tag=hypothesis]
+include::{sourcedir}/lg_numpy.py[tag=hypothesis]
 ```
 
 include::{rootdir}/adoc/navigation.adoc[]
@@ -43,7 +43,7 @@ cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
 ====
 .Cost Function
 ```python
-include::{sourcedir}/lr_numpy.py[tag=cost]
+include::{sourcedir}/lg_numpy.py[tag=cost]
 ```
 
 include::{rootdir}/adoc/navigation.adoc[]
@@ -67,7 +67,7 @@ stem:[
 ]
 ====
 ```python
-include::{sourcedir}/lr_numpy.py[tag=dw]
+include::{sourcedir}/lg_numpy.py[tag=dw]
 ```
 
 ====
@@ -86,7 +86,7 @@ stem:[
 ]
 ====
 ```python
-include::{sourcedir}/lr_numpy.py[tag=db]
+include::{sourcedir}/lg_numpy.py[tag=db]
 ```
 
 === Optimize
@@ -110,7 +110,7 @@ stem:[
 ====
 * lr: Learning Rate
 ```python
-include::{sourcedir}/lr_numpy.py[tag=training]
+include::{sourcedir}/lg_numpy.py[tag=training]
 ```
 
 include::{rootdir}/adoc/navigation.adoc[]
@@ -118,7 +118,7 @@ include::{rootdir}/adoc/navigation.adoc[]
 
 == Test
 ```python
-include::{sourcedir}/lr_numpy.py[tag=test]
+include::{sourcedir}/lg_numpy.py[tag=test]
 ```
 
 include::{rootdir}/adoc/navigation.adoc[]

@@ -102,8 +102,8 @@ for e in range(1000):
 # tag::test[]
 print("\nValidate the model")
 for i in range(len(x_test)):
-    predication = hypothesis(x_test[i])
-    print(f"input = {x_test[i]:.5} | output = {predication:.5} | real = {y_test[i]:.5} | loss = {100 * (predication - y_test[i]) / y_test[i]:.3}%")
+    pred = hypothesis(x_test[i])
+    print(f"input = {x_test[i]:.5} | output = {pred:.5} | real = {y_test[i]:.5} | loss = {100 * (pred - y_test[i]) / y_test[i]:.3}%")
 # end::test[]
 
 # plt.subplot(211)

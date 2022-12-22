@@ -12,21 +12,19 @@ BATCH_SIZE = 100
 
 
 def build_dataset(size: int, batch_size: int = None, train_rate: float = 0.7) -> tuple:
-    x = torch.linspace(0, 10, steps=size, dtype=float).float()
-    y = 10 * x + torch.randint(-2, 2, (size,))
+    x = torch.linspace(0, 10, steps=size, dtype=float).float().unsqueeze(dim=1)
+    y = 10 * x + torch.randint(-2, 2, (size, 1))
     train_len = round(size * train_rate)
-    x_train = x[:train_len].unsqueeze(dim=1)
-    y_train = y[:train_len].unsqueeze(dim=1)
-    x_test = x[train_len:].unsqueeze(dim=1)
-    y_test = y[train_len:].unsqueeze(dim=1)
+    x_train = x[:train_len]
+    y_train = y[:train_len]
+    x_test = x[train_len:]
+    y_test = y[train_len:]
     return x_train, y_train, x_test, y_test
 
 
 x_train, y_train, x_test, y_test = build_dataset(BATCH_SIZE)
+print("x_train =", x_train.shape, "y_train =", y_train.shape)
 
-# Plot
-# plt.scatter(x_train, y_train)
-# plt.show()
 # end::dataset[]
 
 # tag::hypothesis[]
@@ -50,6 +48,8 @@ criterion = torch.nn.MSELoss(reduction='mean')
 print("\nTraining the model")
 costs = []
 lr = 0.01
+
+# Stochastic Gradient Descent(SGD:확률적 경사하강법)
 optimizer = torch.optim.SGD(model.parameters(), lr=lr)
 for e in range(1000):
     y_pred = model(x_train)
@@ -70,8 +70,8 @@ print("\nValidate the model")
 model.eval()
 with torch.no_grad():
     for i in range(len(x_test)):
-        predication = model(x_test[i])
-        print(f"input = {x_test[i].item():.5} | output = {predication.item():.5} | real = {y_test[i].item():.5} | loss = {(100 * (predication - y_test[i]) / y_test[i]).item():.3}%")
+        pred = model(x_test[i])
+        print(f"input = {x_test[i].item():.5} | output = {pred.item():.5} | real = {y_test[i].item():.5} | loss = {(100 * (pred - y_test[i]) / y_test[i]).item():.3}%")
 # end::test[]
 
 # plt.subplot(211)

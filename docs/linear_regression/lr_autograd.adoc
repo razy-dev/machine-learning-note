@@ -1,23 +1,19 @@
 :rootdir: ..
-:docdir: /linear_regression
-:srcpath: /linear_regression
+:chapter: linear_regression
 include::{rootdir}/adoc/toc.adoc[]
 
 = Linear Regression Using Autograd
 :prev_page: lr_numpy
-:next_page: lr_optimizer
-
-[NOTE]
-====
-주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
-====
+:next_page: lr_criterion
 
 == Dataset
-```python
+[source, python]
+----
 include::{sourcedir}/lr_autograd.py[tag=dataset]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Hypothesis(가설)
 ====
@@ -25,11 +21,13 @@ stem:[\hat{y} = wx + b]
 ====
 
 .Hypothesis Function
-```python
+[source, python]
+----
 include::{sourcedir}/lr_autograd.py[tag=hypothesis]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Loss(Error) & Cost
 Mean Squared Error(MSE: 평균제곱오차)
@@ -44,28 +42,54 @@ cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
 ]
 ====
 .Cost Function
-```python
+[source, python]
+----
 include::{sourcedir}/lr_autograd.py[tag=cost]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
 
-== Trainig
+
+== Training
 
 === Gradient Descent Algorithm(기울기 감소 알고리즘)
+====
+stem:[w := w - lr\frac \partial {\partial w} cost(w, b)]
+====
+====
+stem:[b := b - lr\frac \partial {\partial b} cost(w, b)]
+====
+[source, python]
+----
+    cost.backward()  # Autograd
+----
 
 === Optimize
+[source, python]
+----
+    cost.backward()  # Autograd
+    with torch.no_grad():
+        w -= lr * w.grad
+        b -= lr * b.grad
+        w.grad = None  # grad 초기화
+        b.grad = None  # grad 초기화
+----
 * lr: Learning Rate
-```python
+
+=== Training
+[source, python]
+----
 include::{sourcedir}/lr_autograd.py[tag=training]
-```
+----
+* lr: Learning Rate
 
 include::{rootdir}/adoc/navigation.adoc[]
 
 
 == Test
-```python
+[source, python]
+----
 include::{sourcedir}/lr_autograd.py[tag=test]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]

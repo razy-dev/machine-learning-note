@@ -1,22 +1,16 @@
 :rootdir: ..
-:docdir: /linear_regression
-:srcpath: /linear_regression
+:chapter: linear_regression
 include::{rootdir}/adoc/toc.adoc[]
 
 = Linear Regression Using Optimizer
-:prev_page: lr_autograd
-:next_page: lr_torch
-
-[NOTE]
-====
-주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
-====
+:prev_page: lr_criterion
+:next_page: lr_linear
 
 == Dataset
-```python
+[source, python]
+----
 include::{sourcedir}/lr_optimizer.py[tag=dataset]
-```
-
+----
 include::{rootdir}/adoc/navigation.adoc[]
 
 == Hypothesis(가설)
@@ -25,40 +19,47 @@ stem:[\hat{y} = wx + b]
 ====
 
 .Hypothesis Function
-```python
+[source, python]
+----
 include::{sourcedir}/lr_optimizer.py[tag=hypothesis]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
 
 == Loss(Error) & Cost
 Mean Squared Error(MSE: 평균제곱오차)
-====
-stem:[
-\begin{align}
-loss &= y_i - \hat{y_i} \\
-cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
-     &= \frac 1 n \sum_{i}^{n} (y_i - \hat{y_i})^2 \\
-     &= \frac 1 n \sum_{i}^{n} (y_i - (wx_i + b))^2 \\
-\end{align}
-]
-====
+
 .Cost Function
-```python
+[source, python]
+----
 include::{sourcedir}/lr_optimizer.py[tag=cost]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
 
-== Trainig
+== Training
 
 === Gradient Descent Algorithm(기울기 감소 알고리즘)
+[source, python]
+----
+# Stochastic Gradient Descent(SGD:확률적 경사하강법)
+optimizer = torch.optim.SGD([w, b], lr=lr)
+----
 
 === Optimize
-* lr: Learning Rate
-```python
+[source, python]
+----
+optimizer.zero_grad()
+cost.backward()
+optimizer.step()
+----
+
+=== Training
+[source, python]
+----
 include::{sourcedir}/lr_optimizer.py[tag=training]
-```
+----
+* lr: Learning Rate
 
 include::{rootdir}/adoc/navigation.adoc[]
 

@@ -1,23 +1,19 @@
 :rootdir: ..
-:docdir: /linear_regression
-:srcpath: /linear_regression
+:chapter: linear_regression
 include::{rootdir}/adoc/toc.adoc[]
 
 = Linear Regression Using Loss Function
 :prev_page: lr_autograd
 :next_page: lr_optimizer
 
-[NOTE]
-====
-주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
-====
-
 == Dataset
-```python
-include::{sourcedir}/lr_optimizer.py[tag=dataset]
-```
+[source, python]
+----
+include::{sourcedir}/lr_criterion.py[tag=dataset]
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Hypothesis(가설)
 ====
@@ -25,47 +21,65 @@ stem:[\hat{y} = wx + b]
 ====
 
 .Hypothesis Function
-```python
-include::{sourcedir}/lr_optimizer.py[tag=hypothesis]
-```
+[source, python]
+----
+include::{sourcedir}/lr_criterion.py[tag=hypothesis]
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Loss(Error) & Cost
 Mean Squared Error(MSE: 평균제곱오차)
-====
-stem:[
-\begin{align}
-loss &= y_i - \hat{y_i} \\
-cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
-     &= \frac 1 n \sum_{i}^{n} (y_i - \hat{y_i})^2 \\
-     &= \frac 1 n \sum_{i}^{n} (y_i - (wx_i + b))^2 \\
-\end{align}
-]
-====
+
 .Cost Function
-```python
-include::{sourcedir}/lr_optimizer.py[tag=cost]
-```
+[source, python]
+----
+include::{sourcedir}/lr_criterion.py[tag=cost]
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
 
-== Trainig
+
+== Training
 
 === Gradient Descent Algorithm(기울기 감소 알고리즘)
+====
+stem:[w := w - lr\frac \partial {\partial w} cost(w, b)]
+====
+====
+stem:[b := b - lr\frac \partial {\partial b} cost(w, b)]
+====
+[source, python]
+----
+    cost.backward()  # Autograd
+----
 
 === Optimize
+[source, python]
+----
+    with torch.no_grad():
+        w -= lr * w.grad
+        b -= lr * b.grad
+        w.grad = None  # grad 초기화
+        b.grad = None  # grad 초기화
+----
 * lr: Learning Rate
-```python
-include::{sourcedir}/lr_optimizer.py[tag=training]
-```
+
+=== Training
+[source, python]
+----
+include::{sourcedir}/lr_criterion.py[tag=training]
+----
+* lr: Learning Rate
 
 include::{rootdir}/adoc/navigation.adoc[]
 
 
 == Test
-```python
-include::{sourcedir}/lr_optimizer.py[tag=test]
-```
+[source, python]
+----
+include::{sourcedir}/lr_criterion.py[tag=test]
+----
 
 include::{rootdir}/adoc/navigation.adoc[]

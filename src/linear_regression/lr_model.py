@@ -13,8 +13,8 @@ BATCH_SIZE = 100
 
 
 def build_dataset(size: int, batch_size: int = None, train_rate: float = 0.7) -> tuple:
-    x = torch.linspace(0, 10, steps=size, dtype=float)
-    y = 10 * x + torch.randint(-2, 2, (size,))
+    x = torch.linspace(0, 10, steps=size, dtype=float).float().unsqueeze(dim=1)
+    y = 10 * x + torch.randint(-2, 2, (size, 1))
     train_len = round(size * train_rate)
     x_train = x[:train_len]
     y_train = y[:train_len]
@@ -24,15 +24,13 @@ def build_dataset(size: int, batch_size: int = None, train_rate: float = 0.7) ->
 
 
 x_train, y_train, x_test, y_test = build_dataset(BATCH_SIZE)
+print("x_train =", x_train.shape, "y_train =", y_train.shape)
 
 
-# Plot
-# plt.scatter(x_train, y_train)
-# plt.show()
 # end::dataset[]
 
 # tag::hypothesis[]
-class LinearRegession(torch.nn.Module):
+class LinearRegression(torch.nn.Module):
     w: Tensor
     b: Tensor
 
@@ -45,7 +43,7 @@ class LinearRegession(torch.nn.Module):
         return self.w * x + self.b
 
 
-model = LinearRegession()
+model = LinearRegression()
 # end::hypothesis[]
 
 # tag::cost[]
@@ -85,8 +83,8 @@ print("\nValidate the model")
 model.eval()
 with torch.no_grad():
     for i in range(len(x_test)):
-        predication = model(x_test[i])
-        print(f"input = {x_test[i]:.5} | output = {predication:.5} | real = {y_test[i]:.5} | loss = {100 * (predication - y_test[i]) / y_test[i]:.3}%")
+        pred = model(x_test[i])
+        print(f"input = {x_test[i].item():.5} | output = {pred.item():.5} | real = {y_test[i].item():.5} | loss = {(100 * (pred - y_test[i]) / y_test[i]).item():.3}%")
 # end::test[]
 
 # plt.subplot(211)

@@ -1,22 +1,23 @@
 :rootdir: ..
-:docdir: /linear_regression
-:srcpath: /linear_regression
+:chapter: linear_regression
 include::{rootdir}/adoc/toc.adoc[]
 
 = Linear Regression
 :next_page: lr_autograd
 
-[NOTE]
-====
+[sidebar]
+----
 주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
-====
+----
 
 == Dataset
-```python
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=dataset]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Hypothesis(가설)
 ====
@@ -24,11 +25,13 @@ stem:[\hat{y} = wx + b]
 ====
 
 .Hypothesis Function
-```python
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=hypothesis]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Loss(Error) & Cost
 Mean Squared Error(MSE: 평균제곱오차)
@@ -42,12 +45,15 @@ cost &= \frac 1 n \sum_{i}^{n} loss^2 \\
 \end{align}
 ]
 ====
+
 .Cost Function
-```python
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=cost]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
+
 
 == Trainig
 
@@ -67,9 +73,10 @@ stem:[
 \end{align}
 ]
 ====
-```python
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=dw]
-```
+----
 
 ====
 stem:[
@@ -86,9 +93,10 @@ stem:[
 \end{align}
 ]
 ====
-```python
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=db]
-```
+----
 
 === Optimize
 ====
@@ -110,16 +118,21 @@ stem:[
 ]
 ====
 * lr: Learning Rate
-```python
+
+.Training
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=training]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
 
 
 == Test
-```python
+.Model Test
+[source, python]
+----
 include::{sourcedir}/lr_numpy.py[tag=test]
-```
+----
 
 include::{rootdir}/adoc/navigation.adoc[]
