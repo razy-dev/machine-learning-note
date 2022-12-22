@@ -6,6 +6,7 @@ ifndef::rootdir[:rootdir: ..]
 :imgroot: {rootdir}/imgs
 
 // Source :source-highlighter: rouge | coderay | pygments
+ifndef::title-separator[:title-separator: ::]
 ifndef::source-highlighter[:source-highlighter: coderay]
 ifndef::stem[:stem: latexmath]
 

@@ -39,8 +39,8 @@ def sigmoid(z):
     return 1. / (1 + np.exp(-z))
 
 
-def hypothesis(x1, x2):
-    return sigmoid(w1 * x1 + w2 * x2 + b)
+def hypothesis(x0, x1):
+    return sigmoid(w0 * x0 + w1 * x1 + b)
 
 
 # end::hypothesis[]
@@ -80,8 +80,8 @@ def b_grad(input: ndarray, target: ndarray):
 
 # tag::training[]
 # tag::parameters[]
+w0 = 1
 w1 = 1
-w2 = 1
 b = 0
 
 # end::parameters[]

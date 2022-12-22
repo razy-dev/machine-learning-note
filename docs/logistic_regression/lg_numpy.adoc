@@ -2,12 +2,12 @@
 :chapter: logistic_regression
 include::{rootdir}/adoc/toc.adoc[]
 
-= Basic Logistic Regression
+= Binary Logistic Regression
 :next_page: lg_autograd
 
 [sidebar]
 ----
-주어진 `x` 와 `y` 의 관계를 제일 잘 설명한 하나의 선형(직선)함수 찾는 것
+주어진 값(들) 또는 그 연산 결과가 특정 범위에 속할 확률(분류)을 찾는 것
 ----
 
 == Dataset
@@ -18,8 +18,26 @@ include::{sourcedir}/lg_numpy.py[tag=dataset]
 include::{rootdir}/adoc/navigation.adoc[]
 
 == Hypothesis(가설)
+=== sdaf
 ====
-stem:[\hat{y} = w_0x_0 + w_1x_1 + \cdots + w_ix_i + b]
+stem:[z = w_0x_0 + w_1x_1 + b]
+====
+
+=== Activation function
+====
+stem:[\sigma(z) = \frac 1 {1 + e^{-z}} = \frac {e^z} {e^z + 1}]
+====
+
+=== Hypothesis
+====
+stem:[
+\begin{align}
+
+    H(x) = \hat{y} &= \sigma(z) \\
+    &= \frac 1 {1 + e^{-z}} \\
+    &= \frac 1 {1 + e^{-(w_0x_0 + w_1x_1 + b)}}
+\end{align}
+]
 ====
 
 .Hypothesis Function
