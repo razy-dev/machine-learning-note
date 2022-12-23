@@ -18,9 +18,9 @@ include::{sourcedir}/lg_numpy.py[tag=dataset]
 include::{rootdir}/adoc/navigation.adoc[]
 
 == Hypothesis(가설)
-=== sdaf
+=== Linear function
 ====
-stem:[z = w_0x_0 + w_1x_1 + b]
+stem:[g(x) = z = w_0x_0 + w_1x_1 + \cdots w_ix_i + b]
 ====
 
 === Activation function
