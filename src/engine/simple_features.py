@@ -15,7 +15,7 @@ output_size = 1
 x_train, y_train, x_test, y_test, scaler = dataset(
     load(size=200),
     window_size=time_steps,
-    features=features,
+    features=6,
     output_size=output_size,
     scale=True
 )
