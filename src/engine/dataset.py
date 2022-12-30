@@ -33,13 +33,33 @@ def _scale(data: np.ndarray) -> tuple:
     return data, scaler
 
 
+def _gradient(data: np.ndarray, midrange: float = 0.1) -> tuple:
+    grad = [np.eye(3)[1]]
+    for i in range(len(data) - 1):
+        r = (data[i + 1] - data[i]) / data[i]
+        d = 2
+        if abs(r) <= midrange: d = 1
+        if r < 0: d = 0
+        grad.append(np.eye(3)[d])
+    return grad, None
+
+
+def _gradient2(data: np.ndarray, midrange: float = 0.1) -> tuple:
+    grad = [0.0]
+    for i in range(len(data) - 1):
+        r = (data[i + 1] - data[i]) / data[i]
+        grad.append(r)
+    return grad, None
+
+
 def dataset(
         data: DataFrame,
         window_size: int,
         output_size: int,
         features: int = 1,
         split: int = 70,
-        scale: bool = False
+        normalizer: str = '',
+
 ) -> tuple:
     """
         X = (n, window_size, features)
@@ -47,8 +67,13 @@ def dataset(
     """
     scaler = None
     data = data.iloc[:, :features].values
-    if scale:
+
+    if normalizer and 'scale' == normalizer.lower():
         data, scaler = _scale(data)
+    if normalizer and 'gradient' == normalizer.lower():
+        data, scaler = _gradient(data)
+    if normalizer and 'gradient2' == normalizer.lower():
+        data, scaler = _gradient2(data)
 
     total = len(data)
     train_size = round(total * split / 100)
