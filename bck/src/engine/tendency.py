@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 from torch import Tensor
 
-from bck.engine.dataset import dataset, load
-from bck.engine.normalizer import GradNormalizer
+from engine.dataset import dataset, load
+from engine.normalizer import GradNormalizer
 
 torch.manual_seed(1)  # 난수 고정
 torch.set_printoptions(threshold=5, linewidth=128)  # for printing

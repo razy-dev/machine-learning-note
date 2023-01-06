@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import torch
 
-from bck.engine.dataset import dataset, load
+from engine.dataset import dataset, load
 
 torch.manual_seed(1)  # 난수 고정
 torch.set_printoptions(threshold=5, linewidth=128)  # for printing

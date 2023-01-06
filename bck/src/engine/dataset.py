@@ -4,7 +4,7 @@ import yfinance as yf
 from pandas import DataFrame
 from torch import Tensor
 
-from bck.engine.normalizer import Normalizer, GradNormalizer
+from engine.normalizer import Normalizer, GradNormalizer
 
 torch.manual_seed(1)  # 난수 고정
 torch.set_printoptions(threshold=10, linewidth=128)  # for printing

@@ -31,3 +31,8 @@ class ScaleNormalizer(Normalizer):
 class GradScaleNormalizer(ScaleNormalizer):
     def normalize(self, data: np.ndarray, **kwargs):
         return super().normalize(np.gradient(data, axis=0))
+
+
+# for test
+if __name__ == "__main__":
+    print(GradNormalizer().normalize(np.array([1, 4, 6, 2, 1])))

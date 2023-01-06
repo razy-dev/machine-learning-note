@@ -16,19 +16,20 @@ class DefaultFormat(DataFormat):
 
 class TimestepFormat(DataFormat):
     time_steps: int
-    output_size: int
+    target_size: int
 
-    def __init__(self, time_steps: int = 1, output_size: int = 1):
+    def __init__(self, time_steps: int = 1, target_size: int = 1):
         self.time_steps = time_steps or 1
-        self.output_size = output_size or 1
+        self.target_size = target_size or 1
 
     # input = (len, time_steps, features), target = (len, output_size, features)
-    def format(self, data, time_steps: int = None, output_size: int = None) -> tuple:
+    def format(self, input_data, target_data=None, time_steps: int = None, target_size: int = None) -> tuple:
+        target_data = input_data if target_data is None else target_data
         time_steps = time_steps or self.time_steps
-        output_size = output_size or self.output_size
+        target_size = target_size or self.target_size
         input = []
         target = []
-        for i in range(time_steps, len(data) - output_size + 1):
-            input.append(data[i - time_steps:i])
-            target.append(data[i:i + output_size])
+        for i in range(time_steps, len(input_data) - target_size + 1):
+            input.append(input_data[i - time_steps:i])
+            target.append(target_data[i:i + target_size])
         return np.array(input), np.array(target)
