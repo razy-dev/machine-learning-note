@@ -16,7 +16,7 @@ class RnnModel(nn.Module):
             hidden_size: int,
             output_size: int,
             num_layers: int = 1,
-            dropout: float = 0.25,
+            dropout: float = 0.3,
             batch_first: bool = False
     ):
         super(RnnModel, self).__init__()

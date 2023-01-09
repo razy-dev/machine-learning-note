@@ -48,10 +48,10 @@ class Trainer:
                         count += len(y)
 
                     if e and e % epoch_interval == 0 and i and i % batch_interval == 0:
-                        print(f"{e:>4} | {i:>4} | {round(cost.item(), 6):>10} | {round(100 * accuracy / (count or 1), 4):>6}")
+                        print(f"{e:>4} | {i:>4} | {round(cost.item(), 6):>10} | {round(100 * accuracy / (count or 1), 2):>6}%")
                 if e and e % epoch_interval == 0:
                     print('-' * 60)
-                    print(f"{e:>4} | {i:>4} | {round(cost.item(), 6):>10} | {round(100 * accuracy / (count or 1), 4):>6}")
+                    print(f"{e:>4} | {i:>4} | {round(cost.item(), 6):>10} | {round(100 * accuracy / (count or 1), 2):>6}%")
                     print('=' * 60)
         except Exception as ex:
             traceback.print_exc()
@@ -77,9 +77,6 @@ class Trainer:
                 count += 1
                 # print(x, z, zi, y, acc, apx)
             print(
-                f"Total = {count:>4} |",
-                f"Accuracies = {accuracies:>4} |",
-                f"Accuracy = {round(100 * accuracies / (count or 1), 2):>6}% |",
-                f"Approxies = {approxies:>4} |",
-                f"Approximation = {round(100 * approxies / (count or 1), 2):>6}%",
+                f"Accuracy = {accuracies:>4}/{count} = {round(100 * accuracies / (count or 1), 2):>6}% |",
+                f"Approximation = {approxies:>4}/{count} = {round(100 * approxies / (count or 1), 2):>6}%",
             )

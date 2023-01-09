@@ -17,11 +17,15 @@ input_features = [
 ]
 target_features = GradNormalizer()
 
-time_steps = 20
+buffer_size = 1000
+time_steps = 60
 input_size = len(input_features)  # input features
-hidden_size = time_steps * 4
+hidden_size = input_size * 2
+num_layers = 5
 output_size = 3  # prediction features
 target_size = 1  # target features
+batch_size = 16
+epochs = 1000
 
 model = RnnModel(
     input_size=input_size,
@@ -42,7 +46,7 @@ def juror(z, y):
 
 if __name__ == "__main__":
     train_dataset, test_dataset = DatasetBuilder().build(
-        data=DataBuffer(size=1000).read(
+        data=DataBuffer(size=buffer_size).read(
             input_features=input_features,
             target_features=target_features,
             train_rate=0.7,
@@ -56,5 +60,5 @@ if __name__ == "__main__":
     )
 
     engine = Trainer(model, criterion, optimizer, scheduler, juror=juror)
-    engine.train(dataloader=DataLoader(train_dataset, batch_size=8), epochs=1000, log_batch_steps=5)
+    engine.train(dataloader=DataLoader(train_dataset, batch_size=batch_size), epochs=epochs, log_batch_steps=5)
     engine.eval(dataloader=DataLoader(test_dataset))
